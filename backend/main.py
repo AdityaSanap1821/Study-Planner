@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from database import engine, get_db
@@ -82,7 +82,7 @@ def delete_assignment(assignment_id: int, db: Session = Depends(get_db)):
 
     db.delete(assignment)
     db.commit()
-    return None
+    return Response(status_code=204)
 
 
 if __name__ == "__main__":

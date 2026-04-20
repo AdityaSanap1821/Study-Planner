@@ -88,7 +88,7 @@ export const deleteAssignment = async (id) => {
       method: "DELETE",
     });
     if (!res.ok) throw new Error("Failed to delete assignment");
-    return res.json();
+    return true;
   } catch (error) {
     console.error("Error deleting assignment:", error);
     throw error;
